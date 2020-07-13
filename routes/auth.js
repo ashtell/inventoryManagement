@@ -35,6 +35,7 @@ router.post("/search", (req, res, next) => {
 
 router.post("/register", (req, res, next) => {
   const registrationParams = req.body;
+  const name = registrationParams.name;
   const users = req.app.locals.users;
   const username = registrationParams.username.toLowerCase();
   const password = authUtils.hashPassword(registrationParams.password);
