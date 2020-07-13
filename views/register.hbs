@@ -1,0 +1,21 @@
+<h2>Register</h2>
+{{> messages}}
+<form action='/auth/register' method="POST">
+    <div class="form-group">
+        <label for="username">Name:</label>
+        <input type="text" class="form-control" name="name" id="name">
+    </div>
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" name="username" id="username">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" name="password" id="password">
+    </div>
+    <br>
+    <button class="btn btn-primary">Register</button>
+</form>
+
+<p>Or <a href="/auth/login">Login</a></p>

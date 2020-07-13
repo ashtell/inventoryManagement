@@ -1,0 +1,79 @@
+
+{{#if allStock}}
+
+<h2>Stock:</h2>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity Needed</th>
+                <th scope="col">Quantity In Stock</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each allStock}}
+            <tr>
+                <th scope="row">
+                    <div class="display-values">{{name}}</div>
+                    <div class="edit-menu">
+                        <div class="edit-form" id="nameUpdate{{_id}}">
+                            <form method= "POST" action="/log/nameUpdate/{{_id}}">
+                                <label for="nameChange">name:</label>
+                                <input type="text" name="newName" style="width: 80px" id="newName">
+                                <input type="submit" name="submit" value="submit">
+                            </form>
+                        </div>
+                        &ensp;
+                        <a href="#" style="float:right; text-align:right; display-align:middle" onclick="hideUnhide('nameUpdate{{_id}}', 'nameButton{{_id}}')">
+                            <i id="nameButton{{_id}}">edit</i>
+                        </a>
+                    </div>
+                </th>
+                <td>
+                    <div class="display-values">{{requiredAmount}}</div>
+                    <div class="edit-menu">
+                        <div class="edit-form" id="requiredUpdate{{_id}}">
+                            <form method="POST">
+                                <label for="RAChange">#</label>
+                                <input type="number" min="0" name="RAamount" style="width: 80px" id="RAamount">
+                                <input style="background: none!important;" formaction="/log/manipulateRAAdd/{{_id}}" type="submit" name="add" value="+">
+                                <input style="background: none!important;" formaction="/log/manipulateRASub/{{_id}}" type="submit" name="sub" value="-">
+                            </form>
+                        </div>
+                        &ensp;
+                        <a href="#" style="float:right; text-align: right"onclick="hideUnhide('requiredUpdate{{_id}}', 'RAbutton{{_id}}')">
+                            <i id="RAbutton{{_id}}">edit</i>
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div class="display-values">{{amount}}</div>
+                    <div class="edit-menu">
+                        <div class="edit-form" id="amountUpdate{{_id}}">
+                            <form method="POST">
+                                <label for="AChange">#</label>
+                                <input type="number" min="0" name="Aamount" style="width: 80px" id="Aamount">
+                                <input style="background: none!important; background-color: green" formaction="/log/manipulateAAdd/{{_id}}" type="submit" name="add" value="+">
+                                <input style="background: none!important; background-color: red" formaction="/log/manipulateASub/{{_id}}" type="submit" name="sub" value="-">
+                            </form>
+                        </div>
+                        &ensp;
+                        <a href="#" style="float:right; text-align: right"onclick="hideUnhide('amountUpdate{{_id}}', 'Abutton{{_id}}')">
+                            <i id="Abutton{{_id}}">edit</i>
+                        </a>
+                    </div>
+                </td>
+                <td class="deleteRow">
+                    <form method="POST" action="/log/deleteStock/{{_id}}">
+                            <input type="submit" name="submit" value="delete">
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <h2>Add Stock to manage</h2>
+{{/if}}
+<script src="/javascripts/scripts.js"></script>

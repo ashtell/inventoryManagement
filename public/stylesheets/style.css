@@ -1,0 +1,33 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+th {
+  width: 35%;
+  vertical-align: middle;
+}
+td{
+  height: 55px;
+  width: 30%;
+}
+td.deleteRow{
+  width: 5%;
+}
+div.display-values{
+  float:left;
+}
+div.edit-menu{
+  float:right;
+  text-align: right;
+  margin: 0px;
+  padding: 0px;
+}
+div.edit-form{
+  float:left;
+  text-align: left;
+  display: none;
+}

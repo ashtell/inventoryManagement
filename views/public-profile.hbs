@@ -1,0 +1,23 @@
+{{> messages}}
+
+{{#if username }}
+<h2>{{ username}}'s profile</h2>
+<table class="table">
+    <tr>
+        <td>Name: </td>
+        <td><a href="/users/{{username}}">{{ name }}</a></td>
+    </tr>
+    <tr>
+        <td>Github: </td>
+        <td><a href="http://github.com/{{github}}">{{ github }}</a></td>
+    </tr>
+    <tr>
+        <td>Twitter: </td>
+        <td><a href="http://twitter.com/{{twitter}}">{{ twitter }}</a></td>
+    </tr>
+    <tr>
+        <td>Facebook: </td>
+        <td><a href="http://facebook.com/{{facebook}}">{{ facebook }}</a></td>
+    </tr>
+</table>
+{{/if}}
